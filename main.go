@@ -1,7 +1,10 @@
-package main 
+package main
 
 import "fmt"
 
+var nome string
+
 func main() {
-	fmt.Println("Hello World")
+	nome = "Lamar"
+	fmt.Println("Hello", nome)
 }

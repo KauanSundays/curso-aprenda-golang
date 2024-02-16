@@ -5,3 +5,4 @@ Assim, também espera uma função principal
 
 Packages - Packages no Go são como <b>conjuntos organizados</b> de funcionalidades que você pode usar em seus programas.
 
+Variavel - No Golang, a variavel só pode ter um tipo para sempre.
