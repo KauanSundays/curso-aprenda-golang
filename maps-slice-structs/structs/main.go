@@ -9,7 +9,16 @@ type Pessoa struct {
 	Status     	bool
 }
 
-func main {
+type Categoria struct {
+	Nome 		string
+	Pai *Categoria
+}
+
+// func (c Categoria) HasParent() bool {
+// 	return c.Pai != nil 
+// }
+
+func main() {
 	p := Pessoa{
 		Nome:		"Tiago",
 		Sobrenome:	"Alves",
