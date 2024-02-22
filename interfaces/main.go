@@ -3,8 +3,7 @@ package main
 import "fmt"
 
 type Document interface {
-	Doc() 	string
-
+	Doc() string
 }
 
 type Pessoa struct {
@@ -32,9 +31,25 @@ type PessoaJuridica struct {
 	cnpj        string
 }
 
-func show (d Document) {
-	fmt.Println(d)
-	fmt.Println(d.Doc())
+func (pj PessoaJuridica) String() string {
+	return fmt.Sprintf("Olá, nós somos a %s e temos %d anos de existência.", pj.RazaoSocial, pj.Idade)
+}
+
+func (pj PessoaJuridica) Doc() string {
+	return fmt.Sprintf("nosso CNPJ é: %s", pj.cnpj)
+}
+
+func show(d Document) {
+	switch d.(type) {
+	case PessoaFisica:
+		fmt.Println(d.(PessoaFisica).String())
+		fmt.Println(d.(PessoaFisica).Doc())
+	case PessoaJuridica:
+		fmt.Println(d.(PessoaJuridica).String())
+		fmt.Println(d.(PessoaJuridica).Doc())
+	default:
+		fmt.Println("tipo desconhecido")
+	}
 }
 
 func main() {
@@ -56,6 +71,6 @@ func main() {
 		cnpj:        "12.345.678/0001-90",
 	}
 
-	fmt.Println(pf)
-	fmt.Println(pj)
+	show(pf)
+	show(pj)
 }
