@@ -20,6 +20,8 @@ func letras() {
 }
 
 func main() {
-	numeros()
-	letras()
+	go numeros() // routines
+	go letras()
+
+	time.Sleep( 3 * time.Second) // Espera
 }
